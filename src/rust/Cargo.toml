@@ -9,4 +9,5 @@ crate-type = [ 'staticlib' ]
 name = 'tomleditR'
 
 [dependencies]
-extendr-api = '*'
+extendr-api = { git = 'https://github.com/extendr/extendr' }
+toml_edit = '0.19.11'

@@ -1,10 +1,10 @@
 use extendr_api::prelude::*;
+use toml_edit::Document;
 
-/// Return string `"Hello world!"` to R.
-/// @export
-#[extendr]
-fn hello_world() -> &'static str {
-    "Hello world!"
+#[extendr(use_try_from = true)]
+fn inspect(toml_doc : String) {
+    let document = toml_doc.parse::<Document>().unwrap();
+    rprintln!("{:#?}", document);
 }
 
 // Macro to generate exports.
@@ -12,5 +12,5 @@ fn hello_world() -> &'static str {
 // See corresponding C code in `entrypoint.c`.
 extendr_module! {
     mod tomleditR;
-    fn hello_world;
+    fn inspect;
 }
