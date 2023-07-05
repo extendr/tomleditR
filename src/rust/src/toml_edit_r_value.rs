@@ -45,10 +45,14 @@ impl From<TomlEditRValue> for Robj {
 
 // TODO: Arrays should be homogeneous vectors, not lists
 fn from_array(array: toml_edit::Array) -> Robj {
-    array.iter()
+
+
+    let result = array.iter()
         .map(|v| <&Value as TryInto<TomlEditRValue>>::try_into(v))
         .map(|pkg_value| pkg_value.map(|v| v.into_robj()))
-        .collect::<std::result::Result<List, _>>()
-        .unwrap()
-        .into_robj()
+        .collect::<std::result::Result<Vec<_>, _>>()
+        .unwrap();
+
+    // TODO: untyped magic here
+    R!("unlist({{result}})").unwrap()
 }
