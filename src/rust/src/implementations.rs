@@ -25,7 +25,7 @@ pub(crate) fn get_value(document : &Document, key_path: Strings) -> std::result:
         item.and_then(|item| item.get(key.as_str()))
     });
 
-    item.and_then(|item| item.as_value())
-        .ok_or(TomlEditRError::CrateError("Value not found".to_string()))
+    item.ok_or(TomlEditRError::CrateError("Value not found".to_string()))
+        .and_then(|item| item.as_value().ok_or(TomlEditRError::CrateError("Invalid value".to_string())))
         .and_then(|value| value.try_into())
 }

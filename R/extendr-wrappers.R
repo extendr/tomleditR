@@ -31,6 +31,8 @@ TomlDocument$inspect <- function() .Call(wrap__TomlDocument__inspect, self)
 
 TomlDocument$get <- function(key_path) .Call(wrap__TomlDocument__get, self, key_path)
 
+TomlDocument$get2 <- function(key_path) .Call(wrap__TomlDocument__get2, self, key_path)
+
 #' @rdname TomlDocument
 #' @usage NULL
 #' @export

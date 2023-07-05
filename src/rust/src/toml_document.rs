@@ -21,6 +21,22 @@ impl TomlDocument {
     fn get(&self, key_path : Strings) -> Result<TomlEditRValue> {
         Ok(get_value(&self.document, key_path)?)
     }
+
+    fn get2(&self, key_path : List) -> Result<TomlEditRValue> {
+        if key_path.len() == 0 {
+            return Ok(get_value(&self.document, Strings::new(0))?)
+        }
+
+        let path =
+        if key_path.len() == 1  {
+            Strings::try_from(&key_path[0])?
+        }
+        else {
+            key_path.iter().map(|(_, r_obj)| String::try_from(r_obj)).collect::<std::result::Result<Strings, _>>()?
+        };
+
+        Ok(get_value(&self.document, path)?)
+    }
 }
 
 fn parse_impl(string: String) -> std::result::Result<TomlDocument, TomlEditRError> {

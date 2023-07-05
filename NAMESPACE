@@ -2,8 +2,10 @@
 
 S3method("$",TomlDocument)
 S3method("[[",TomlDocument)
+S3method(get_list,TomlDocument)
 S3method(print,TomlDocument)
 export(TomlDocument)
+export(get_list)
 export(get_value)
 export(inspect)
 useDynLib(tomleditR, .registration = TRUE)

@@ -1,6 +1,7 @@
 use extendr_api::prelude::*;
 use toml_edit::TomlError;
 
+#[derive(Debug)]
 pub(crate) enum TomlEditRError {
     TomlError(TomlError),
     ExtendrError(Error),
