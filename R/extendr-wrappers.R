@@ -14,7 +14,7 @@ NULL
 #' Inspect a TOML document.
 #' @param toml_doc A TOML document.
 #' @export
-inspect <- function(toml_doc) invisible(.Call(wrap__inspect, toml_doc))
+inspect <- function(toml_doc) .Call(wrap__inspect, toml_doc)
 
 
 # nolint end
