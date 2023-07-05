@@ -37,6 +37,12 @@ devtools::install_github("extendr/tomleditR")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example1}
 tomleditR::inspect("")
+```
+
+Or you can take a peek at a specific value:
+
+```{r example2}
+tomleditR::get_value("[package]\nname = \"tomleditR\"\nversion = \"0.0.0\"\n", c("package", "version"))
 ```
