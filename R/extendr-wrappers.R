@@ -22,5 +22,22 @@ inspect <- function(toml_doc) .Call(wrap__inspect, toml_doc)
 #' @export
 get_value <- function(toml_doc, key_path) .Call(wrap__get_value, toml_doc, key_path)
 
+#' @export
+TomlDocument <- new.env(parent = emptyenv())
+
+TomlDocument$parse <- function(string) .Call(wrap__TomlDocument__parse, string)
+
+TomlDocument$inspect <- function() .Call(wrap__TomlDocument__inspect, self)
+
+TomlDocument$get <- function(key_path) .Call(wrap__TomlDocument__get, self, key_path)
+
+#' @rdname TomlDocument
+#' @usage NULL
+#' @export
+`$.TomlDocument` <- function (self, name) { func <- TomlDocument[[name]]; environment(func) <- environment(); func }
+
+#' @export
+`[[.TomlDocument` <- `$.TomlDocument`
+
 
 # nolint end

@@ -4,6 +4,7 @@ use toml_edit_r_value::TomlEditRValue;
 mod error_handling;
 mod implementations;
 mod toml_edit_r_value;
+mod toml_document;
 
 /// Inspect a TOML document.
 /// @param toml_doc A TOML document.
@@ -19,7 +20,7 @@ fn inspect(toml_doc: String) -> Result<Strings> {
 /// @export
 #[extendr(use_try_from = true)]
 fn get_value(toml_doc: String, key_path: Strings) -> Result<TomlEditRValue> {
-    Ok(implementations::get_value(toml_doc, key_path)?)
+    Ok(implementations::get_value_impl(toml_doc, key_path)?)
 }
 
 // Macro to generate exports.
@@ -29,4 +30,6 @@ extendr_module! {
     mod tomleditR;
     fn inspect;
     fn get_value;
+
+    use toml_document;
 }

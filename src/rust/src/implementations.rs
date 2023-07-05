@@ -1,20 +1,26 @@
 use crate::{error_handling::*, toml_edit_r_value::TomlEditRValue};
 use extendr_api::Strings;
-use toml_edit::{Document, Item};
+use toml_edit::Document;
 
 pub(crate) fn inspect_impl(toml_doc: String) -> std::result::Result<Strings, TomlEditRError> {
     let document = toml_doc.parse::<Document>()?;
-    let str_rep = format!("{:#?}", document);
-
-    Ok(str_rep.split('\n').collect::<Strings>())
+    Ok(format_doc(&document))
 }
 
-pub(crate) fn get_value(
+pub(crate) fn format_doc(document : &Document) -> Strings {
+    let str_rep = format!("{:#?}", document);
+    str_rep.split('\n').collect::<Strings>()
+}
+
+pub(crate) fn get_value_impl(
     toml_doc: String,
     key_path: Strings,
 ) -> std::result::Result<TomlEditRValue, TomlEditRError> {
     let document = toml_doc.parse::<Document>()?;
+    get_value(&document, key_path)
+}
 
+pub(crate) fn get_value(document : &Document, key_path: Strings) -> std::result::Result<TomlEditRValue, TomlEditRError> {
     let item = key_path.iter().fold(Some(document.as_item()), |item, key| {
         item.and_then(|item| item.get(key.as_str()))
     });
