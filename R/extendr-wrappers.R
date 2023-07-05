@@ -16,5 +16,11 @@ NULL
 #' @export
 inspect <- function(toml_doc) .Call(wrap__inspect, toml_doc)
 
+#' Get a value from a TOML document.
+#' @param toml_doc A TOML document.
+#' @param key_path A path to the value.
+#' @export
+get_value <- function(toml_doc, key_path) .Call(wrap__get_value, toml_doc, key_path)
+
 
 # nolint end
