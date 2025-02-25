@@ -13,7 +13,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/extendr/tomleditR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/extendr/tomleditR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-> \[!WARNING\] `tomleditR` has been archived. Refer to
+> \[!WARNING\]
+>
+> `tomleditR` has been archived. Refer to
 > [`tomledit`](https://github.com/extendr/tomledit) as the successor to
 > `tomleditR`.
 

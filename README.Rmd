@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 
 
 > [!WARNING]
+> 
 > `tomleditR` has been archived. Refer to [`tomledit`](https://github.com/extendr/tomledit) as the successor to `tomleditR`.
 
 The goal of tomleditR is to expose the [toml_edit](https://docs.rs/toml_edit/latest/toml_edit/) crate to R.
