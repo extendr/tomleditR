@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tomleditR
+# tomleditR (archived)
 
 <!-- badges: start -->
 
@@ -12,6 +12,10 @@ status](https://www.r-pkg.org/badges/version/tomleditR)](https://CRAN.R-project.
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/extendr/tomleditR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/extendr/tomleditR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
+
+> \[!WARNING\] `tomleditR` has been archived. Refer to
+> [`tomledit`](https://github.com/extendr/tomledit) as the successor to
+> `tomleditR`.
 
 The goal of tomleditR is to expose the
 [toml_edit](https://docs.rs/toml_edit/latest/toml_edit/) crate to R.
